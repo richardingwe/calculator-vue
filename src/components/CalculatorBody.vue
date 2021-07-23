@@ -6,6 +6,7 @@
 			@getButtonValue="getButtonValue"
 			@solve="solve"
 			@clearAll="clearAll"
+			@clearOne="clearOne"
 		/>
 	</div>
 </template>
@@ -32,11 +33,23 @@
 				if (this.question[0] == '0') this.question = this.question.slice(1);
 			},
 			solve() {
-				this.digit = eval(this.question);
+				this.digit = eval(this.question).toString();
 			},
 			clearAll() {
 				this.question = 0;
 				this.digit = 0;
+			},
+			clearOne() {
+				if (this.digit) this.digit = this.digit.slice(0, this.digit.length - 1);
+				if (this.question)
+					this.question = this.question.toString().slice(this.digit.length - 1);
+				if (!this.digit) (this.digit = 0), (this.question = 0);
+
+				// if (digit.length < 6) {
+				// 	digit.style.fontSize = '5rem';
+				// } else if (digit.length < 9) {
+				// 	digit.style.fontSize = '3rem';
+				// }
 			},
 		},
 	};

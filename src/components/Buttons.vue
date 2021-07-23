@@ -4,7 +4,7 @@
 			<span @click="clearAll" class="extra_operator clearAll text-dark">
 				AC
 			</span>
-			<span class="clear extra_operator text-dark">
+			<span @click="clearOne" class="clear extra_operator text-dark">
 				<svg
 					aria-hidden="true"
 					focusable="false"
@@ -159,6 +159,9 @@
 			},
 			clearAll() {
 				this.$emit('clearAll');
+			},
+			clearOne() {
+				this.$emit('clearOne');
 			},
 		},
 	};
